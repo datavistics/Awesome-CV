@@ -95,6 +95,20 @@ docker run --rm --user $(id -u):$(id -g) -i -w "/doc" -v "$PWD":/doc texlive/tex
 
 In either case, this should result in the creation of ``{your-cv}.pdf``
 
+#### Building Derek's CV
+
+```bash
+docker run --rm -w "/doc" -v "$PWD":/doc texlive/texlive:latest lualatex derek.tex
+```
+
+Or with make:
+
+```bash
+docker run --rm -w "/doc" -v "$PWD":/doc texlive/texlive:latest make derek
+```
+
+This produces `derek.pdf`. Run the command twice to ensure correct page numbers in the footer.
+
 
 ## Credit
 
